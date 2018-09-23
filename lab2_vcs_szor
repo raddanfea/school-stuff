@@ -1,0 +1,19 @@
+//https://www.onlinegdb.com/online_c++_compiler
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout<<"Adj meg 2 szamot: \n";
+    int a; 
+    int b; 
+    cin>>a;
+    cin>>b;
+    
+    a = a*b; //ab
+    b = a/b; //ab/b = a
+    a = a/b; //ab/a = b
+    
+    cout<<"Eredmeny: "<< a <<","<< b <<"\n";
+}
