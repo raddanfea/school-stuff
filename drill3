@@ -1,0 +1,52 @@
+#include "std_lib_facilities.h"
+int main()
+	{
+		cout<<"Add meg a keresztneved: ";
+		string kn;
+		cin>>kn;
+
+		cout<<"Add meg a korod: ";
+		int kor=0;
+		cin>>kor;
+			if(kor<0 || kor>110)
+				cout<<"Szerinted elhiszem?" <<"\n";
+
+		cout<<"Célzott neve: ";
+		string cn;
+		cin>>cn;
+		cout<<"Célzott neme: (0:férfi/1:nő) ";
+		int cnn;
+		cin>>cnn;
+			if(nm!=0 && nm!=1)
+				cout<<"Igazad van, az Apache helikopter menőbb." <<"\n";
+		cout<<"Barát neve: ";
+		string bn;
+		cin>>bn;
+		cout<<"Barát neme: (0:férfi/1:nő) ";
+		int bnn;
+		cin>>bnn;
+			if(nm!=0 && nm!=1)
+				cout<<"Igazad van, az Apache helikopter menőbb." <<"\n";
+
+		cout<<"\nKedves "<<cn<<",\n";
+		cout<<"\nHogy vagy? Velem minden rendben van. Hiányzol. \n";
+		if(cnn==0)
+			cout<<"Boldok születésnapot kívánok! (Férfi)\n"; 
+		else if(nm==1)
+			cout<<"Boldok születésnapot kívánok! (Nő)\n";
+		else 
+			cout<<"Boldok születésnapot kívánok! (Egyéb)\n";
+		
+		if(kor<12)cout<<"Jövőre "<<kor+1<<" éves leszel.\n";
+		if(kor==17)cout<<"Jövőre már szavazhatsz!\n";
+		if(kor>70)cout<<"Remélem élvezed a nyugdíjas életet.\n";
+
+		cout<< "Láttad " <<bn<<" barátunkat mostanában? ";
+		if(bnn==0)
+			cout<<"Ha igen szólj neki hogy hivhon fel. (Férfi)";
+		else if(bnn==1)
+			cout<<"Ha igen szólj neki hogy hivhon fel. (Nő)";
+		else
+			cout<<"Ha igen szólj neki hogy hivhon fel. (Egyéb)";
+	cout<<"\nMinden jót és szépet!\n\n"<<kn<<"\n";
+	}
