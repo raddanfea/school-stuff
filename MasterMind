@@ -1,0 +1,71 @@
+#include "std_lib_facilities.h"
+#include <float.h>
+
+
+
+
+
+
+int main()
+{
+vector<int> szam(4);
+vector<int> bem(4);
+vector<char> kim(4);
+int prob = 10;
+int err=0;
+int ar;
+cout<<"\n MasterMind játék Feather által.\n A játék egy 4 számjegyű kódot generál amit fell kell törtöd.\n A számjegyek 1-6-ig terjednek. \n Ha jó számjegyet adsz meg jó pozícióban, X-el jelöli a gép.\n Ha a szám jó de a pozíció nem, O val van jelölve.\n 10 db lehetőséged van.\n Bármely betű beírásával resetelheted a játékot!\n Korrekt bemenet példa: \n 1[enter]2[enter]3[enter]4[enter]\n ";
+for(int i=0; i<4; ++i)
+	{
+	ar = rand() % 5 + 1;
+	szam[i]=ar;
+	}
+
+
+	while (prob>0)
+	{
+		// cout<<szam[0]<<szam[1]<<szam[2]<<szam[3]<<'\n';                          //teszt
+		cout<<prob<< " próbálkozás van hátra. \n";
+		err=0;
+		cin>>bem[0]>>bem[1]>>bem[2]>>bem[3];
+		if(cin.fail())
+			{	
+				cin.clear(); // reset failbit
+    				cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				cout<<"Játék ujrainditása.\n";
+				prob=10;
+				for(int i=0; i<4; ++i)
+				{
+				ar = rand() % 5 + 1;
+				szam[i]=ar;
+				}
+			}
+		else
+			for(int i=0; i<4; ++i) 
+			{
+				if(bem[i]<1 || bem[i]>6) {cout <<"1 és 6 közötti szám!\n";
+						err=5;}
+			}
+			if(err==5) {}
+			else
+				for(int l=0;l<4;l++)
+				{
+					if (bem[l]==szam[l]) 
+					{
+						kim[l]='X';
+						if((kim[0]=='X')&&(kim[1]=='X')&&(kim[2]=='X')&&(kim[3]=='X'))
+						{
+							cout<<kim[0]<<kim[1]<<kim[2]<<kim[3]<<'\n';
+							cout<<"Nyertél!\n";
+							return 1;
+						}
+					}
+					else if ((bem[l]==szam[0])||(bem[l]==szam[1])||(bem[l]==szam[2])||(bem[l]==szam[3])) {kim[l]='O';}
+					else {kim[l]=' ';}
+				}
+				cout<<kim[0]<<kim[1]<<kim[2]<<kim[3]<<'\n';
+				--prob;
+			}
+		cout<<"Játék vége!\n";
+} 
+	
