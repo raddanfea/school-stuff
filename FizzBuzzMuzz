@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+
+const int a = 4; //number of numbers +1
+char nums[a] = "345"; //numbers
+
+std::string op;
+
+void fizzbuzz(int in){
+    for(int ill = 0; ill < a-1; ill++){
+        int inta = nums[ill]-'0';
+        //std::cout<<inta<<"\n"; //debug line
+        if (in % inta == 0){
+        
+            switch(inta){
+                case 3: {op.append("Fizz");break;}
+                case 4: {op.append("Buzz");break;}
+                case 5: {op.append("Muzz");break;}
+                default: {op = "";break;}
+            }
+        }
+    }
+}
+
+int main()
+{
+  for(int i=1;i<=100;i++)
+    {
+
+    fizzbuzz(i);
+    if (op == "") {op = std::to_string(i);}
+    std::cout<<op<<"\n";
+    op = "";
+    }
+}
