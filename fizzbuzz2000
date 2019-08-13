@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+
+const int a = 5 +1; 	//number of numbers +1
+char nums[a] = "34567"; //numbers in array
+int b = 1000; 		//num to count up to
+int countme[a+1]; 	//counting array
+
+std::string op;
+
+void fizzbuzz(int in){
+    for(int ill = 0; ill < a-1; ill++){
+        int inta = nums[ill]-'0';
+        //std::cout<<inta<<"\n"; //debug line
+        if (in % inta == 0){
+        
+            switch(inta){
+                case 3: {op.append("Fizz");countme[0]=countme[0]+1;break;}
+                case 4: {op.append("Buzz");countme[1]=countme[1]+1;break;}
+                case 5: {op.append("Muzz");countme[2]=countme[2]+1;break;}
+		case 6: {op.append("Hazz");countme[3]=countme[3]+1;break;}
+		case 7: {op.append("Lazz");countme[4]=countme[4]+1;break;}
+                default: {op = "";break;}
+            }
+        }
+    }
+}
+
+int main()
+{
+	for(int i=0;i<a-1;i++)
+	{
+		countme[i]=0;
+	}
+
+	for(int i=1;i<=b;i++)
+	{
+	    	fizzbuzz(i);
+	    	if (op == "") {op = std::to_string(i);}
+	    		std::cout<<" "<<i<<". "<<op<<"\n";
+		if(op=="FizzBuzzMuzzHazzLazz"){countme[a+1]+=1;}
+	    	op = "";
+	}
+	
+	for(int i=0;i<a-1;i++)
+	{
+		std::cout<<countme[i]<<" darab "<<nums[i]<<" \n";
+	}
+	
+	std::cout<<countme[a+1]<<" darab mindből\n";
+}
